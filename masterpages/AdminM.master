@@ -1,0 +1,753 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="AdminM.master.cs" Inherits="Admin_AdminM" %>
+
+<%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <link href="../css/admin.css" rel="stylesheet" type="text/css" />
+    <link href="../css/admin_login.css" rel="stylesheet" />
+
+    <title>:: Performance Racing | Admin ::</title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <script type="text/javascript">
+        function MM_swapImgRestore() { //v3.0
+            var i, x, a = document.MM_sr; for (i = 0; a && i < a.length && (x = a[i]) && x.oSrc; i++) x.src = x.oSrc;
+        }
+        function MM_preloadImages() { //v3.0
+            var d = document; if (d.images) {
+                if (!d.MM_p) d.MM_p = new Array();
+                var i, j = d.MM_p.length, a = MM_preloadImages.arguments; for (i = 0; i < a.length; i++)
+                    if (a[i].indexOf("#") != 0) { d.MM_p[j] = new Image; d.MM_p[j++].src = a[i]; }
+            }
+        }
+
+        function MM_findObj(n, d) { //v4.01
+            var p, i, x; if (!d) d = document; if ((p = n.indexOf("?")) > 0 && parent.frames.length) {
+                d = parent.frames[n.substring(p + 1)].document; n = n.substring(0, p);
+            }
+            if (!(x = d[n]) && d.all) x = d.all[n]; for (i = 0; !x && i < d.forms.length; i++) x = d.forms[i][n];
+            for (i = 0; !x && d.layers && i < d.layers.length; i++) x = MM_findObj(n, d.layers[i].document);
+            if (!x && d.getElementById) x = d.getElementById(n); return x;
+        }
+
+        function MM_swapImage() { //v3.0
+            var i, j = 0, x, a = MM_swapImage.arguments; document.MM_sr = new Array; for (i = 0; i < (a.length - 2) ; i += 3)
+                if ((x = MM_findObj(a[i])) != null) { document.MM_sr[j++] = x; if (!x.oSrc) x.oSrc = x.src; x.src = a[i + 2]; }
+        }
+    </script>
+
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server">
+        </asp:ScriptManager>
+        <div>
+            <table width="1350" border="0" align="center" cellpadding="0" cellspacing="0" class="treeView">
+                <tr>
+                    <td>
+                        <table width="1350" border="0" cellspacing="0" cellpadding="0">
+                            <tr>
+                                <td>
+                                    <table width="1325px" border="0" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <td style="background-image: url(../admin_icons/header_admin.jpg); height: 114px; width: 1325px;" align="right" valign="bottom">
+                                                <table style="padding-bottom: 7px;">
+                                                    <tr>
+                                                        <td style="text-align: right; padding-right: 15px; padding-bottom: 10px;"><span style="font-weight: bold; font-size: medium;">
+                                                            <asp:Label ID="lblwelcome" runat="server" Font-Size="Medium" ForeColor="White"></asp:Label></span></td>
+                                                        <td style="text-align: right; padding-right: 15px; padding-bottom: 8px;">
+                                                            <asp:LinkButton ID="LinkButton1" OnClick="lbtnlogout_Click" runat="server" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image1','','../admin_icons/logout_roll.png',1)"><img src="../admin_icons/log_in.png" alt="" id="Image1" /></asp:LinkButton>
+                                                          </td>
+                                                    </tr>
+                                                </table>
+                                            </td>
+                                        </tr>
+
+
+
+
+
+                                        <tr>
+                                            <td align="left" valign="top" style="width: 1325px;">
+                                                <table width="1350" border="0" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+                                                    <tr>
+                                                        <td height="36" align="left" valign="top" style="padding-top: 10px;">
+                                                            <table width="1350" border="0" cellspacing="0" cellpadding="0">
+                                                                <tr>
+                                                                    <td width="10">
+                                                                        <img src="../Admin_Icons/blank_space.gif" width="10" height="450" /></td>
+                                                                    <td width="255" valign="top">
+                                                                        <table width="255" border="0" cellspacing="0" cellpadding="0">
+                                                                            <tr>
+                                                                                <td valign="top" style="background-image: url(../Admin_Icons/bg_top.jpg)">
+                                                                                    <img src="../Admin_Icons/left_top_corner.jpg" alt="" /></td>
+                                                                                <td style="background-image: url(../Admin_Icons/bg_top.jpg)"></td>
+                                                                                <td width="12" height="14" align="right" valign="top" style="background-image: url(../Admin_Icons/bg_top.jpg)">
+                                                                                    <img src="../Admin_Icons/right_top_corner.jpg" alt="" /></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td valign="top" style="background-image: url(../Admin_Icons/bg_lt.jpg)">
+                                                                                    <img src="../Admin_Icons/bg_lt.jpg" width="14" height="1" alt="" /></td>
+                                                                                <td valign="top" align="left">
+
+                                                                                    <!-- Admin treeview control start -->
+
+
+                                                                                    <telerik:RadTreeView ID="RadTreeView1" runat="server" Skin="Default" SingleExpandPath="True" OnNodeClick="RadTreeView1_NodeClick" OnNodeExpand="RadTreeView1_NodeExpand" CssClass="treeView">
+                                                                                        <Nodes>
+                                                                                            <telerik:RadTreeNode runat="server" Text="Admin Users" Value="Admin Users" PostBack="False">
+                                                                                                <Nodes>
+                                                                                                    <telerik:RadTreeNode runat="server" Text="Add Admin Users"
+                                                                                                        ImageUrl="~/admin_icons/icon-add.gif"
+                                                                                                        Checked="True">
+                                                                                                    </telerik:RadTreeNode>
+                                                                                                    <telerik:RadTreeNode runat="server" Text="View Admin Users"
+                                                                                                        ImageUrl="~/admin_icons/icon-jcat.gif" Checked="True">
+                                                                                                    </telerik:RadTreeNode>
+                                                                                                </Nodes>
+                                                                                            </telerik:RadTreeNode>
+
+                                                                                             <telerik:RadTreeNode runat="server" Text="HS Code Master" PostBack="False">
+                                                                                                <Nodes>
+                                                                                                    <telerik:RadTreeNode runat="server" ImageUrl="~/admin_icons/icon-add.gif" PostBack="true"
+                                                                                                        Text="Add HS Code" Checked="True">
+                                                                                                    </telerik:RadTreeNode>
+
+                                                                                                    <telerik:RadTreeNode runat="server" Text="View HS Code" PostBack="true"
+                                                                                                        ImageUrl="~/admin_icons/icon-jcat.gif" Checked="True">
+                                                                                                    </telerik:RadTreeNode>
+                                                                                                </Nodes>
+                                                                                            </telerik:RadTreeNode>
+
+                                                                                            <telerik:RadTreeNode runat="server" Text="Currency Master" PostBack="False">
+                                                                                                <Nodes>
+                                                                                                    <telerik:RadTreeNode runat="server" ImageUrl="~/admin_icons/icon-add.gif" PostBack="true"
+                                                                                                        Text="Add Currency Rate" Checked="True">
+                                                                                                    </telerik:RadTreeNode>
+
+                                                                                                    <telerik:RadTreeNode runat="server" Text="View Currency Rate" PostBack="true"
+                                                                                                        ImageUrl="~/admin_icons/icon-jcat.gif" Checked="True">
+                                                                                                    </telerik:RadTreeNode>
+
+
+                                                                                                </Nodes>
+
+                                                                                            </telerik:RadTreeNode>
+
+                                                                                            <telerik:RadTreeNode runat="server" Text="Costing & Tax Master" PostBack="False">
+                                                                                                <Nodes>
+
+                                                                                                    <telerik:RadTreeNode runat="server" Text="Duty & Tax Master" ImageUrl="~/admin_icons/icon-add.jpg">
+                                                                                                    </telerik:RadTreeNode>
+
+                                                                                                    <telerik:RadTreeNode runat="server" Text="Dealers Costing" ImageUrl="~/admin_icons/icon-add.jpg">
+                                                                                                    </telerik:RadTreeNode>
+
+
+                                                                                                    <%--<telerik:RadTreeNode runat="server" Text="View Costing & Tax Master" ImageUrl="~/admin_icons/icon-jcat.jpg">
+                                                                                                    </telerik:RadTreeNode>--%>
+
+
+
+                                                                                                    <%-- <telerik:RadTreeNode runat="server" Text="GST Master" PostBack="true"
+                                                                                                        ImageUrl="~/admin_icons/icon-jcat.gif" Checked="True">
+                                                                                                    </telerik:RadTreeNode>--%>
+
+
+
+                                                                                                    <%--     <telerik:RadTreeNode runat="server" Text="Service Tax Master">
+                                                                                                    </telerik:RadTreeNode>
+                                                                                                        <telerik:RadTreeNode runat="server" Text="TDS Master">
+                                                                                                    </telerik:RadTreeNode>--%>
+                                                                                                </Nodes>
+                                                                                            </telerik:RadTreeNode>
+
+
+
+
+                                                                                            <telerik:RadTreeNode runat="server" Text="Colours Master" PostBack="False">
+                                                                                                <Nodes>
+                                                                                                    <telerik:RadTreeNode runat="server" ImageUrl="~/admin_icons/icon-add.gif" PostBack="true"
+                                                                                                        Text="Add Colours" Checked="True">
+                                                                                                    </telerik:RadTreeNode>
+                                                                                                    <telerik:RadTreeNode runat="server" Text="View Colours" PostBack="true"
+                                                                                                        ImageUrl="~/admin_icons/icon-jcat.gif" Checked="True">
+                                                                                                    </telerik:RadTreeNode>
+                                                                                                </Nodes>
+
+                                                                                            </telerik:RadTreeNode>
+
+                                                                                            <%-- <telerik:RadTreeNode runat="server" Text="Currency Master" PostBack="False">
+                                                                                                <Nodes>
+                                                                                                    <telerik:RadTreeNode runat="server" ImageUrl="~/admin_icons/icon-add.gif" PostBack="true"
+                                                                                                        Text="Add Currency Rate" Checked="True">
+                                                                                                    </telerik:RadTreeNode>
+                                                                                                    <telerik:RadTreeNode runat="server" Text="View Currency Rate" PostBack="true"
+                                                                                                        ImageUrl="~/admin_icons/icon-jcat.gif" Checked="True">
+                                                                                                    </telerik:RadTreeNode>
+                                                                                                </Nodes>
+
+                                                                                            </telerik:RadTreeNode>--%>
+
+
+                                                                                            <%--   <telerik:RadTreeNode runat="server" Text="Style Master" PostBack="False">
+                                                                                                <Nodes>
+                                                                                                    <telerik:RadTreeNode runat="server" ImageUrl="~/admin_icons/icon-add.gif" PostBack="true"
+                                                                                                        Text="Add Style" Checked="True">
+                                                                                                    </telerik:RadTreeNode>
+                                                                                                    <telerik:RadTreeNode runat="server" Text="View Style" PostBack="true"
+                                                                                                        ImageUrl="~/admin_icons/icon-jcat.gif" Checked="True">
+                                                                                                    </telerik:RadTreeNode>
+                                                                                                </Nodes>
+
+                                                                                            </telerik:RadTreeNode>--%>
+
+                                                                                            <telerik:RadTreeNode runat="server" Text="Bike Manufacturer Master" PostBack="False">
+                                                                                                <Nodes>
+                                                                                                    <telerik:RadTreeNode runat="server" ImageUrl="~/admin_icons/icon-add.gif" PostBack="true"
+                                                                                                        Text="Add Bike Manufacturer" Checked="True">
+                                                                                                    </telerik:RadTreeNode>
+                                                                                                    <telerik:RadTreeNode runat="server" Text="View Bike Manufacturers" PostBack="true"
+                                                                                                        ImageUrl="~/admin_icons/icon-jcat.gif" Checked="True">
+                                                                                                    </telerik:RadTreeNode>
+
+                                                                                                    <telerik:RadTreeNode runat="server" ImageUrl="~/admin_icons/icon-add.gif" PostBack="true"
+                                                                                                        Text="Add Bike Model" Checked="True">
+                                                                                                    </telerik:RadTreeNode>
+                                                                                                    <telerik:RadTreeNode runat="server" Text="View Bike Models" PostBack="true"
+                                                                                                        ImageUrl="~/admin_icons/icon-jcat.gif" Checked="True">
+                                                                                                    </telerik:RadTreeNode>
+                                                                                                </Nodes>
+                                                                                            </telerik:RadTreeNode>
+
+                                                                                            <%--  <telerik:RadTreeNode runat="server" Text="Components Master" PostBack="False">
+                                                                                                <Nodes>
+                                                                                                    <telerik:RadTreeNode runat="server" ImageUrl="~/admin_icons/icon-add.gif" PostBack="true"
+                                                                                                        Text="Add Components" Checked="True">
+                                                                                                    </telerik:RadTreeNode>
+                                                                                                    <telerik:RadTreeNode runat="server" Text="View Components" PostBack="true"
+                                                                                                        ImageUrl="~/admin_icons/icon-jcat.gif" Checked="True">
+                                                                                                    </telerik:RadTreeNode>
+                                                                                                </Nodes>
+                                                                                            </telerik:RadTreeNode>--%>
+
+
+
+                                                                                            <telerik:RadTreeNode runat="server" Text="Brands Master" PostBack="False">
+                                                                                                <Nodes>
+                                                                                                    <telerik:RadTreeNode runat="server" ImageUrl="~/admin_icons/icon-add.gif" PostBack="true"
+                                                                                                        Text="Add Brands" Checked="True">
+                                                                                                    </telerik:RadTreeNode>
+                                                                                                   
+                                                                                                    <telerik:RadTreeNode runat="server" Text="View Brands" PostBack="true"
+                                                                                                        ImageUrl="~/admin_icons/icon-jcat.gif" Checked="True">
+                                                                                                    </telerik:RadTreeNode>
+
+                                                                                                    <%-- <telerik:RadTreeNode runat="server" ImageUrl="~/admin_icons/icon-add.gif" PostBack="true"
+                                                                                                        Text="Add Brands Details" Checked="True">
+                                                                                                    </telerik:RadTreeNode>
+                                                                                                    <telerik:RadTreeNode runat="server" Text="View Brands Details" PostBack="true"
+                                                                                                        ImageUrl="~/admin_icons/icon-jcat.gif" Checked="True">
+                                                                                                    </telerik:RadTreeNode>--%>
+                                                                                                </Nodes>
+                                                                                            </telerik:RadTreeNode>
+
+
+
+
+
+
+
+                                                                                            <%--                                                                                            <telerik:RadTreeNode runat="server" Text="Materials Master" PostBack="False">
+                                                                                                <Nodes>
+                                                                                                    <telerik:RadTreeNode runat="server" ImageUrl="~/admin_icons/icon-add.gif" PostBack="true"
+                                                                                                        Text="Add Materials" Checked="True">
+                                                                                                    </telerik:RadTreeNode>
+                                                                                                    <telerik:RadTreeNode runat="server" Text="View Materials" PostBack="true"
+                                                                                                        ImageUrl="~/admin_icons/icon-jcat.gif" Checked="True">
+                                                                                                    </telerik:RadTreeNode>
+                                                                                                </Nodes>
+                                                                                            </telerik:RadTreeNode>
+
+
+
+
+                                                                                            <telerik:RadTreeNode runat="server" Text="Assembly Master" PostBack="False">
+                                                                                                <Nodes>
+                                                                                                    <telerik:RadTreeNode runat="server" ImageUrl="~/admin_icons/icon-add.gif" PostBack="true"
+                                                                                                        Text="Add Assembly" Checked="True">
+                                                                                                    </telerik:RadTreeNode>
+                                                                                                    <telerik:RadTreeNode runat="server" Text="View Assembly" PostBack="true"
+                                                                                                        ImageUrl="~/admin_icons/icon-jcat.gif" Checked="True">
+                                                                                                    </telerik:RadTreeNode>
+                                                                                                </Nodes>
+
+                                                                                            </telerik:RadTreeNode>--%>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                                                            <telerik:RadTreeNode runat="server" Text="Manage Categories" PostBack="true">
+                                                                                                <Nodes>
+                                                                                                    <telerik:RadTreeNode runat="server" Text="Add Category" PostBack="true"
+                                                                                                        ImageUrl="~/admin_icons/icon-add.gif" Checked="True">
+                                                                                                    </telerik:RadTreeNode>
+                                                                                                    <telerik:RadTreeNode runat="server" Text="View Categories" PostBack="true"
+                                                                                                        ImageUrl="~/admin_icons/icon-jcat.gif" Checked="True">
+                                                                                                    </telerik:RadTreeNode>
+
+                                                                                                    <telerik:RadTreeNode runat="server" Text="Add Sub Category" PostBack="true"
+                                                                                                        ImageUrl="~/admin_icons/icon-add.gif" Checked="True">
+                                                                                                    </telerik:RadTreeNode>
+                                                                                                    <telerik:RadTreeNode runat="server" Text="View Sub Categories" PostBack="true"
+                                                                                                        ImageUrl="~/admin_icons/icon-jcat.gif" Checked="True">
+                                                                                                    </telerik:RadTreeNode>
+
+                                                                                                </Nodes>
+                                                                                            </telerik:RadTreeNode>
+
+
+
+                                                                                            <%--  <telerik:RadTreeNode runat="server" Text="Manage Sub Sub Category" PostBack="true">
+                                                                                                <Nodes>
+                                                                                                    <telerik:RadTreeNode runat="server" Text="Add Sub Sub Category" PostBack="true"
+                                                                                                        ImageUrl="~/admin_icons/icon-add.gif" Checked="True">
+                                                                                                    </telerik:RadTreeNode>
+
+                                                                                                    <telerik:RadTreeNode runat="server" Text="View Sub Sub Category" PostBack="true"
+                                                                                                        ImageUrl="~/admin_icons/icon-jcat.gif" Checked="True">
+                                                                                                    </telerik:RadTreeNode>
+                                                                                                </Nodes>
+                                                                                            </telerik:RadTreeNode>--%>
+
+
+                                                                                            <telerik:RadTreeNode runat="server" Text="Manage Products" PostBack="true">
+                                                                                                <Nodes>
+                                                                                                    <telerik:RadTreeNode runat="server" Text="Add Products" PostBack="true"
+                                                                                                        ImageUrl="~/admin_icons/icon-add.gif" Checked="True">
+                                                                                                    </telerik:RadTreeNode>
+                                                                                                    <telerik:RadTreeNode runat="server" Text="View Products" PostBack="true"
+                                                                                                        ImageUrl="~/admin_icons/icon-jcat.gif" Checked="True">
+                                                                                                    </telerik:RadTreeNode>
+
+                                                                                                    <telerik:RadTreeNode runat="server" Text="View Products Report" ImageUrl="~/admin_icons/exl.gif">
+                                                                                                    </telerik:RadTreeNode>
+                                                                                                </Nodes>
+                                                                                            </telerik:RadTreeNode>
+
+                                                                                             <telerik:RadTreeNode runat="server" Text="Manage Stocks" PostBack="False">
+                                                                                                <Nodes>
+                                                                                                    <telerik:RadTreeNode runat="server" Text="Add Stocks" ImageUrl="~/admin_icons/icon-add.jpg">
+                                                                                                    </telerik:RadTreeNode>
+                                                                                                     <telerik:RadTreeNode runat="server" Text="View Stocks" ImageUrl="~/admin_icons/icon-jcat.jpg">
+                                                                                                    </telerik:RadTreeNode>
+                                                                                                   
+                                                                                                </Nodes>
+                                                                                            </telerik:RadTreeNode>
+
+
+                                                                                              <telerik:RadTreeNode runat="server" Text="Products Warranty Text" PostBack="False">
+                                                                                                <Nodes>
+                                                                                                    <telerik:RadTreeNode runat="server" Text="Edit Products Warranty Text" ImageUrl="~/admin_icons/icon-add.jpg">
+                                                                                                    </telerik:RadTreeNode>
+                                                                                                   
+                                                                                                </Nodes>
+                                                                                            </telerik:RadTreeNode>
+
+
+
+                                                                                            <telerik:RadTreeNode runat="server" Text="Sales & Promotion Discounts" PostBack="False">
+                                                                                                <Nodes>
+                                                                                                    <telerik:RadTreeNode runat="server" Text="Add Discounts" ImageUrl="~/admin_icons/icon-add.jpg">
+                                                                                                    </telerik:RadTreeNode>
+                                                                                                    <telerik:RadTreeNode runat="server" Text="View Discounts" ImageUrl="~/admin_icons/icon-jcat.jpg">
+                                                                                                    </telerik:RadTreeNode>
+                                                                                                </Nodes>
+                                                                                            </telerik:RadTreeNode>
+
+                                                                                         <%--   <telerik:RadTreeNode runat="server" Text="Bargain Basement" PostBack="False">
+                                                                                                <Nodes>
+                                                                                                    <telerik:RadTreeNode runat="server" ImageUrl="~/admin_icons/icon-add.gif" PostBack="true"
+                                                                                                        Text="Add Bargain Product" Checked="True">
+                                                                                                    </telerik:RadTreeNode>
+                                                                                                    <telerik:RadTreeNode runat="server" Text="View Bargain Products" PostBack="true"
+                                                                                                        ImageUrl="~/admin_icons/icon-jcat.gif" Checked="True">
+                                                                                                    </telerik:RadTreeNode>
+                                                                                                </Nodes>
+                                                                                            </telerik:RadTreeNode>--%>
+
+                                                                                            <telerik:RadTreeNode runat="server" Text="Featured & Latest Products" PostBack="False">
+                                                                                                <Nodes>
+                                                                                                    <telerik:RadTreeNode runat="server" ImageUrl="~/admin_icons/icon-add.gif" PostBack="true"
+                                                                                                        Text="Add Featured & Latest Products" Checked="True">
+                                                                                                    </telerik:RadTreeNode>
+                                                                                                    <telerik:RadTreeNode runat="server" Text="View Featured & Latest Products" PostBack="true"
+                                                                                                        ImageUrl="~/admin_icons/icon-jcat.gif" Checked="True">
+                                                                                                    </telerik:RadTreeNode>
+
+                                                                                                </Nodes>
+                                                                                            </telerik:RadTreeNode>
+
+
+                                                                                            <telerik:RadTreeNode runat="server" Text="Dealers" PostBack="False">
+                                                                                                <Nodes>
+                                                                                                    <telerik:RadTreeNode runat="server" ImageUrl="~/admin_icons/icon-add.gif" PostBack="true"
+                                                                                                        Text="Add Dealers" Checked="True">
+                                                                                                    </telerik:RadTreeNode>
+                                                                                                    <telerik:RadTreeNode runat="server" Text="View Dealers" PostBack="true"
+                                                                                                        ImageUrl="~/admin_icons/icon-jcat.gif" Checked="True">
+                                                                                                    </telerik:RadTreeNode>
+
+                                                                                                    <telerik:RadTreeNode runat="server" ImageUrl="~/admin_icons/icon-add.gif" PostBack="true"
+                                                                                                        Text="Add Dealers Contacts" Checked="True">
+                                                                                                    </telerik:RadTreeNode>
+                                                                                                    <telerik:RadTreeNode runat="server" Text="View Dealers Contacts" PostBack="true"
+                                                                                                        ImageUrl="~/admin_icons/icon-jcat.gif" Checked="True">
+                                                                                                    </telerik:RadTreeNode>
+                                                                                                </Nodes>
+                                                                                            </telerik:RadTreeNode>
+
+
+                                                                                            <telerik:RadTreeNode runat="server" Text="Shipping Master" PostBack="False">
+                                                                                                <Nodes>
+                                                                                                    <telerik:RadTreeNode runat="server" Text="Add Shipping" ImageUrl="~/admin_icons/icon-add.jpg">
+                                                                                                    </telerik:RadTreeNode>
+                                                                                                    <telerik:RadTreeNode runat="server" Text="View Shipping" ImageUrl="~/admin_icons/icon-jcat.jpg">
+                                                                                                    </telerik:RadTreeNode>
+                                                                                                </Nodes>
+                                                                                            </telerik:RadTreeNode>
+
+                                                                                            <%--  <telerik:RadTreeNode runat="server" Text="Shipping Agents" PostBack="False">
+                                                                                                <Nodes>
+                                                                                                    <telerik:RadTreeNode runat="server" ImageUrl="~/admin_icons/icon-add.gif" PostBack="true"
+                                                                                                        Text="Add Shipping Agent" Checked="True">
+                                                                                                    </telerik:RadTreeNode>
+
+                                                                                                    <telerik:RadTreeNode runat="server" Text="View Shipping Agent" PostBack="true"
+                                                                                                        ImageUrl="~/admin_icons/icon-jcat.gif" Checked="True">
+                                                                                                    </telerik:RadTreeNode>
+
+                                                                                                    <telerik:RadTreeNode runat="server" ImageUrl="~/admin_icons/icon-add.gif" PostBack="true"
+                                                                                                        Text="Add Shipping Agent Contacts" Checked="True">
+                                                                                                    </telerik:RadTreeNode>
+
+                                                                                                    <telerik:RadTreeNode runat="server" Text="View Shipping Agent Contacts" PostBack="true"
+                                                                                                        ImageUrl="~/admin_icons/icon-jcat.gif" Checked="True">
+                                                                                                    </telerik:RadTreeNode>
+
+                                                                                                </Nodes>
+                                                                                            </telerik:RadTreeNode>--%>
+
+
+                                                                                            <telerik:RadTreeNode runat="server" Text="Shipping Agents" PostBack="False">
+                                                                                                <Nodes>
+                                                                                                    <%-- <telerik:RadTreeNode runat="server" Text="Add Courier Company" ImageUrl="~/admin_icons/icon-add.jpg">
+                                                                                                    </telerik:RadTreeNode>
+                                                                                                    <telerik:RadTreeNode runat="server" Text="View Courier Company" ImageUrl="~/admin_icons/icon-jcat.jpg">
+                                                                                                    </telerik:RadTreeNode>--%>
+
+                                                                                                    <telerik:RadTreeNode runat="server" ImageUrl="~/admin_icons/icon-add.gif" PostBack="true"
+                                                                                                        Text="Add Shipping Agent" Checked="True">
+                                                                                                    </telerik:RadTreeNode>
+
+                                                                                                    <telerik:RadTreeNode runat="server" Text="View Shipping Agent" PostBack="true"
+                                                                                                        ImageUrl="~/admin_icons/icon-jcat.gif" Checked="True">
+                                                                                                    </telerik:RadTreeNode>
+
+                                                                                                    <telerik:RadTreeNode runat="server" ImageUrl="~/admin_icons/icon-add.gif" PostBack="true"
+                                                                                                        Text="Add Shipping Agent Contacts" Checked="True">
+                                                                                                    </telerik:RadTreeNode>
+
+                                                                                                    <telerik:RadTreeNode runat="server" Text="View Shipping Agent Contacts" PostBack="true"
+                                                                                                        ImageUrl="~/admin_icons/icon-jcat.gif" Checked="True">
+                                                                                                    </telerik:RadTreeNode>
+
+                                                                                                </Nodes>
+                                                                                            </telerik:RadTreeNode>
+
+                                                                                            <telerik:RadTreeNode runat="server" Text="Shipping Dispatch Module" PostBack="False">
+                                                                                                <Nodes>
+                                                                                                    <telerik:RadTreeNode runat="server" Text="Add Shipping Dispatch" ImageUrl="~/admin_icons/icon-add.jpg">
+                                                                                                    </telerik:RadTreeNode>
+                                                                                                    <telerik:RadTreeNode runat="server" Text="View Shipping Dispatch" ImageUrl="~/admin_icons/icon-jcat.jpg">
+                                                                                                    </telerik:RadTreeNode>
+                                                                                                </Nodes>
+                                                                                            </telerik:RadTreeNode>
+
+
+
+
+                                                                                            <%-- <telerik:RadTreeNode runat="server" Text="Discount Coupons" PostBack="False">
+                                                                                                <Nodes>
+                                                                                                    <telerik:RadTreeNode runat="server" Text="Add Coupons" ImageUrl="~/admin_icons/icon-add.jpg">
+                                                                                                    </telerik:RadTreeNode>
+                                                                                                    <telerik:RadTreeNode runat="server" Text="View Coupons" ImageUrl="~/admin_icons/icon-jcat.jpg">
+                                                                                                    </telerik:RadTreeNode>
+                                                                                                </Nodes>
+                                                                                            </telerik:RadTreeNode>--%>
+
+
+
+
+
+                                                                                            <telerik:RadTreeNode runat="server" Text="Pincode Master" PostBack="False">
+                                                                                                <Nodes>
+                                                                                                    <%-- <telerik:RadTreeNode runat="server" ImageUrl="~/admin_icons/icon-add.gif" PostBack="true"
+                                                                                                        Text="Add Pincode" Checked="True">
+                                                                                                    </telerik:RadTreeNode>--%>
+                                                                                                    <telerik:RadTreeNode runat="server" ImageUrl="~/admin_icons/icon-add.gif" PostBack="true"
+                                                                                                        Text="Add Pincode Delivery" Checked="True">
+                                                                                                    </telerik:RadTreeNode>
+
+                                                                                                    <telerik:RadTreeNode runat="server" Text="View Pincode" PostBack="true"
+                                                                                                        ImageUrl="~/admin_icons/icon-jcat.gif" Checked="True">
+                                                                                                    </telerik:RadTreeNode>
+                                                                                                </Nodes>
+                                                                                            </telerik:RadTreeNode>
+
+
+
+
+
+
+
+
+                                                                                            <telerik:RadTreeNode runat="server" Text="Manage Customer" PostBack="False">
+                                                                                                <Nodes>
+                                                                                                    <telerik:RadTreeNode runat="server" Text="Add Customer" ImageUrl="~/admin_icons/icon-add.jpg">
+                                                                                                    </telerik:RadTreeNode>
+                                                                                                    <telerik:RadTreeNode runat="server" Text="View Customer" ImageUrl="~/admin_icons/icon-jcat.jpg">
+                                                                                                    </telerik:RadTreeNode>
+                                                                                                </Nodes>
+                                                                                            </telerik:RadTreeNode>
+
+
+                                                                                            <telerik:RadTreeNode runat="server" Text="Online Sales Report" PostBack="False">
+                                                                                                <Nodes>
+                                                                                                    <telerik:RadTreeNode runat="server" Text="View Online Sales" ImageUrl="~/admin_icons/icon-jcat.jpg">
+                                                                                                    </telerik:RadTreeNode>
+
+                                                                                                    <telerik:RadTreeNode runat="server" Text="View Online Sales Status" ImageUrl="~/admin_icons/icon-jcat.jpg">
+                                                                                                    </telerik:RadTreeNode>
+
+                                                                                                    <telerik:RadTreeNode runat="server" Text="Export Online Sales Report" ImageUrl="~/admin_icons/exl.gif">
+                                                                                                    </telerik:RadTreeNode>
+
+                                                                                                    <%-- <telerik:RadTreeNode runat="server" Text="View Inv Report" ImageUrl="~/admin_icons/icon-jcat.jpg">
+                                                                                                    </telerik:RadTreeNode>
+
+                                                                                                    <telerik:RadTreeNode runat="server" Text="Export to Excel Inv" ImageUrl="~/admin_icons/exl.gif">
+                                                                                                    </telerik:RadTreeNode>--%>
+                                                                                                </Nodes>
+                                                                                            </telerik:RadTreeNode>
+
+                                                                                            <telerik:RadTreeNode runat="server" Text="Dealers Sales Report" PostBack="False">
+                                                                                                <Nodes>
+                                                                                                   <%--  <telerik:RadTreeNode runat="server" Text="Add Dealers Sales" ImageUrl="~/admin_icons/icon-jcat.jpg">
+                                                                                                    </telerik:RadTreeNode>--%>
+
+                                                                                                    <telerik:RadTreeNode runat="server" Text="View Dealers Sales" ImageUrl="~/admin_icons/icon-jcat.jpg">
+                                                                                                    </telerik:RadTreeNode>
+
+                                                                                                    <telerik:RadTreeNode runat="server" Text="View Dealers Sales Status" ImageUrl="~/admin_icons/icon-jcat.jpg">
+                                                                                                    </telerik:RadTreeNode>
+
+                                                                                                    <telerik:RadTreeNode runat="server" Text="Export Dealers Sales Report" ImageUrl="~/admin_icons/exl.gif">
+                                                                                                    </telerik:RadTreeNode>
+                                                                                                </Nodes>
+                                                                                            </telerik:RadTreeNode>
+
+                                                                                            <telerik:RadTreeNode runat="server" Text="Store Sales Report" PostBack="False">
+                                                                                                <Nodes>
+                                                                                                    <telerik:RadTreeNode runat="server" Text="Add Store Sales" ImageUrl="~/admin_icons/icon-jcat.jpg">
+                                                                                                    </telerik:RadTreeNode>
+
+                                                                                                    <telerik:RadTreeNode runat="server" Text="View Store Sales" ImageUrl="~/admin_icons/icon-jcat.jpg">
+                                                                                                    </telerik:RadTreeNode>
+
+                                                                                                    <telerik:RadTreeNode runat="server" Text="View Store Sales Status" ImageUrl="~/admin_icons/icon-jcat.jpg">
+                                                                                                    </telerik:RadTreeNode>
+
+                                                                                                    <telerik:RadTreeNode runat="server" Text="Export Store Sales Report" ImageUrl="~/admin_icons/exl.gif">
+                                                                                                    </telerik:RadTreeNode>
+
+                                                                                                </Nodes>
+                                                                                            </telerik:RadTreeNode>
+
+                                                                                            
+
+
+                                                                                            <telerik:RadTreeNode runat="server" Text="Newsletter Subscriptions" PostBack="False">
+                                                                                                <Nodes>
+                                                                                                    <telerik:RadTreeNode runat="server" Text="Add News Subscriptions" ImageUrl="~/admin_icons/icon-add.jpg">
+                                                                                                    </telerik:RadTreeNode>
+                                                                                                    <telerik:RadTreeNode runat="server" Text="View News Subscriptions" ImageUrl="~/admin_icons/icon-jcat.jpg">
+                                                                                                    </telerik:RadTreeNode>
+                                                                                                </Nodes>
+                                                                                            </telerik:RadTreeNode>
+
+                                                                                            <telerik:RadTreeNode runat="server" Text="Testimonials" PostBack="False">
+                                                                                                <Nodes>
+                                                                                                    <telerik:RadTreeNode runat="server" Text="Add Testimonial" ImageUrl="~/admin_icons/icon-add.jpg">
+                                                                                                    </telerik:RadTreeNode>
+                                                                                                    <telerik:RadTreeNode runat="server" Text="View Testimonial" ImageUrl="~/admin_icons/icon-jcat.jpg">
+                                                                                                    </telerik:RadTreeNode>
+                                                                                                </Nodes>
+                                                                                            </telerik:RadTreeNode>
+
+                                                                                            <telerik:RadTreeNode runat="server" Text="Breaking News" PostBack="False">
+                                                                                                <Nodes>
+                                                                                                    <telerik:RadTreeNode runat="server" Text="Add News" ImageUrl="~/admin_icons/icon-add.jpg">
+                                                                                                    </telerik:RadTreeNode>
+                                                                                                    <telerik:RadTreeNode runat="server" Text="View News" ImageUrl="~/admin_icons/icon-jcat.jpg">
+                                                                                                    </telerik:RadTreeNode>
+                                                                                                </Nodes>
+                                                                                            </telerik:RadTreeNode>
+
+
+
+                                                                                            <telerik:RadTreeNode runat="server" Text="Barcode" PostBack="False">
+                                                                                                <Nodes>
+                                                                                                    <telerik:RadTreeNode runat="server" Text="Print Barcode" ImageUrl="~/admin_icons/icon-add.jpg">
+                                                                                                    </telerik:RadTreeNode>
+                                                                                                </Nodes>
+                                                                                            </telerik:RadTreeNode>
+
+                                                                                               
+
+                                                                                            <telerik:RadTreeNode runat="server" Text="Change Admin Password"
+                                                                                                Checked="True">
+                                                                                            </telerik:RadTreeNode>
+
+                                                                                        </Nodes>
+                                                                                    </telerik:RadTreeView>
+
+                                                                                    <!-- Admin treeview control end -->
+
+                                                                                </td>
+                                                                                <td style="background-image: url(../Admin_Icons/bg_rg.jpg)">
+                                                                                    <img src="../Admin_Icons/bg_rg.jpg" width="14" height="1" alt="" /></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td width="12" height="14" align="left" valign="bottom" style="background-image: url(../Admin_Icons/bg_botm.jpg)">
+                                                                                    <img src="../Admin_Icons/left_btm_corner.jpg" alt="" /></td>
+                                                                                <td height="14" style="background-image: url(../Admin_Icons/bg_botm.jpg)"></td>
+                                                                                <td align="right" valign="bottom" style="background-image: url(../Admin_Icons/bg_botm.jpg)">
+                                                                                    <img src="../Admin_Icons/right_btm_corner.jpg" alt="" /></td>
+                                                                            </tr>
+                                                                        </table>
+                                                                    </td>
+                                                                    <td width="10">
+                                                                        <img src="../Admin_Icons/blank_space.gif" width="10" height="450" alt="" /></td>
+                                                                    <td width="1056" valign="top" align="left">
+                                                                        <table width="1056" border="0" cellspacing="0" cellpadding="0">
+                                                                            <tr>
+                                                                                <td style="background-image: url(../Admin_Icons/bg_top.jpg)">
+                                                                                    <img src="../Admin_Icons/left_top_corner.jpg" width="12" height="14" alt="" /></td>
+                                                                                <td style="background-image: url(../Admin_Icons/bg_top.jpg)"></td>
+                                                                                <td width="12" align="right" valign="top" style="background-image: url(../Admin_Icons/bg_top.jpg)">
+                                                                                    <img src="../Admin_Icons/right_top_corner.jpg" alt="" /></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td style="background-image: url(../Admin_Icons/bg_lt.jpg)">
+                                                                                    <img src="../Admin_Icons/bg_lt.jpg" width="14" height="1" alt="" /></td>
+                                                                                <td valign="top" style="height: auto; width: 1055px;">
+
+                                                                                    <!-- Admin Content Panel start -->
+                                                                                    <%-- <telerik:RadAjaxLoadingPanel ID="RadAjaxLoadingPanel1" runat="server" Skin="WebBlue">
+                         <telerik:RadXmlHttpPanel ID="RadXmlHttpPanel1" runat="server" LoadingPanelID="RadAjaxLoadingPanel1"  Value="CACTU" RenderMode="Block"> --%>
+
+                                                                                    <%--    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                            <ContentTemplate>--%>
+                                                                                    <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                                                                                    </asp:ContentPlaceHolder>
+                                                                                    <%-- </ContentTemplate>
+                            </asp:UpdatePanel>--%>
+
+                                                                                    <%-- </telerik:RadXmlHttpPanel>
+                        </telerik:RadAjaxLoadingPanel>   --%>
+                                                                                    <!-- Admin Content Panel end -->
+
+
+
+                                                                                    <!-- Ajax Loader start -->
+
+                                                                                    <asp:UpdateProgress ID="UpdateProgress1" runat="server" DynamicLayout="false">
+                                                                                        <ProgressTemplate>
+                                                                                            <div style="padding-left: 250px;">
+                                                                                                <img src="../admin_icons/loading.gif" />
+                                                                                            </div>
+                                                                                        </ProgressTemplate>
+                                                                                    </asp:UpdateProgress>
+
+                                                                                    <cc1:AlwaysVisibleControlExtender ID="AlwaysVisibleControlExtender2" runat="server"
+                                                                                        TargetControlID="UpdateProgress1" HorizontalSide="Center"
+                                                                                        VerticalSide="Middle">
+                                                                                    </cc1:AlwaysVisibleControlExtender>
+
+                                                                                    <!-- Ajax Loader End -->
+
+
+
+
+                                                                                </td>
+                                                                                <td style="background-image: url(../Admin_Icons/bg_rg.jpg)">
+                                                                                    <img src="../Admin_Icons/bg_rg.jpg" width="14" height="1" alt="" /></td>
+                                                                            </tr>
+                                                                            <tr>
+                                                                                <td width="12" align="left" valign="bottom" style="background-image: url(../Admin_Icons/bg_botm.jpg)">
+                                                                                    <img src="../Admin_Icons/left_btm_corner.jpg" width="12" height="14" alt="" /></td>
+                                                                                <td style="background-image: url(../Admin_Icons/bg_botm.jpg)"></td>
+                                                                                <td align="right" valign="bottom" style="background-image: url(../Admin_Icons/bg_botm.jpg)">
+                                                                                    <img src="../Admin_Icons/right_btm_corner.jpg" width="12" height="14" alt="" /></td>
+                                                                            </tr>
+                                                                        </table>
+                                                                    </td>
+                                                                </tr>
+                                                            </table>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <br />
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>
+                                                            <footer>
+
+                <div align="center">Copyright &copy; 2015 Performance Racing | All Rights Reserved | Site Designed & Maintained By <a href="http://www.goradiainfotech.com/" target="_blank">Goradia Infotech</a></div>
+            </footer>
+
+                                                        </td>
+                                                    </tr>
+
+                                                </table>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+</body>
+</html>

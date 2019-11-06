@@ -1,0 +1,497 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="HomePage.master.cs" Inherits="masterpages_HomePage" %>
+
+<%@ Register Assembly="Telerik.Web.UI" Namespace="Telerik.Web.UI" TagPrefix="telerik" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Performance Racing</title>
+    <link href="../css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
+    <!--jQuery(necessary for Bootstrap's JavaScript plugins)-->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <!--Custom-Theme-files-->
+    <!--theme-style-->
+
+    <link href="../css/style.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="../css/global.css" rel="stylesheet" type="text/css" media="all" />
+    <link href="../css/tabs.css" rel="stylesheet" type="text/css" media="all" />
+    <%--<link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">--%>
+    <link href="../css/font-awesome.min.css" rel="stylesheet" />
+    <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!--start-menu-->
+    <script src="../js/simpleCart.min.js"> </script>
+    <link href="../css/memenu.css" rel="stylesheet" type="text/css" media="all" />
+
+    <script type="text/javascript" src="../js/memenu.js"></script>
+    <script>$(document).ready(function () { $(".memenu").memenu(); });</script>
+    <!--dropdown-->
+    <script src="../js/jquery.easydropdown.js"></script>
+
+    <script>$(document).ready(function (c) {
+    $('.alert-close').on('click', function (c) {
+        $('.message').fadeOut('slow', function (c) {
+            $('.message').remove();
+        });
+    });
+});
+    </script>
+
+    <script>$(document).ready(function (c) {
+    $('.alert-close1').on('click', function (c) {
+        $('.message1').fadeOut('slow', function (c) {
+            $('.message1').remove();
+        });
+    });
+});
+    </script>
+    <script>$(document).ready(function (c) {
+    $('.alert-close2').on('click', function (c) {
+        $('.message2').fadeOut('slow', function (c) {
+            $('.message2').remove();
+        });
+    });
+});
+    </script>
+
+
+
+    <script src="../js/bootstrap.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../scripts/main.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('[data-toggle="tooltip"]').tooltip({
+                placement: 'top'
+            });
+        });
+    </script>
+
+
+
+
+
+
+    <script src="../js/easyResponsiveTabs.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#horizontalTab').easyResponsiveTabs({
+                type: 'default', //Types: default, vertical, accordion           
+                width: 'auto', //auto or any width like 600px
+                fit: true   // 100% fit in a container
+            });
+        });
+
+    </script>
+
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-128318530-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-128318530-1');
+</script>
+
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+
+</head>
+<body>
+    <form id="form1" runat="server">
+        <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
+
+        <!--top-header-->
+        <div class="top-header">
+            <div class="container">
+                <div class="top-header-main">
+                    <div class="col-md-4 ">
+                        <div class="drop">
+
+                            <div class="box1">
+                                Need help? Call: <span>+91-9820588118</span>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-8 top-header-left">
+                        <div class="right-social-media">
+                            <a href="#" title="My Wishlist">&nbsp;&nbsp;<asp:Label ID="lblDealer" runat="server"></asp:Label></a>&nbsp;&nbsp;
+                            <asp:LinkButton ID="btnDealersLogin" runat="server" ImageUrl="~/images/log_out_icon.jpg" ToolTip="Dealers Login" PostBackUrl="~/DealersLogin.aspx"><i class="glyphicon glyphicon-lock"></i>&nbsp;Dealers Login</asp:LinkButton>
+                            <asp:LinkButton ID="btnDealersLogout" runat="server" ImageUrl="~/images/log_out_icon.jpg" ToolTip="Dealers Log out" OnClick="btnDealersLogout_Click"><i class="glyphicon glyphicon-lock"></i>&nbsp;Sign Out</asp:LinkButton>
+
+                            <a href="../cart/registrations.aspx" title="My Account" class="">&nbsp; <span class="glyphicon glyphicon-user"></span>My Account</a>&nbsp;&nbsp;    	
+                            <a href="../cart/wish_list.aspx" title="My Wishlist"><span class="glyphicon glyphicon-heart"></span>&nbsp;Wishlist&nbsp;<asp:Label ID="lblWistListQty" runat="server"></asp:Label></a>&nbsp;&nbsp;
+                            <a href="../cart/registrations.aspx" title="Register"><i class="fa fa-check"></i>&nbsp;Register</a>&nbsp;&nbsp;
+    	                    <a href="#" title="My Wishlist">&nbsp;&nbsp;<asp:Label ID="lblUsername" runat="server"></asp:Label></a>
+                            <asp:LinkButton ID="btnlogout" runat="server" ImageUrl="~/images/log_out_icon.jpg" OnClick="btnlogout_Click" ToolTip="Sign Out"><i class="glyphicon glyphicon-lock"></i>&nbsp;Sign Out</asp:LinkButton>
+                            <asp:LinkButton ID="btnLogin" runat="server" ImageUrl="~/images/log_out_icon.jpg" PostBackUrl="../cart/login.aspx" ToolTip="Sign In"><i class="glyphicon glyphicon-lock"></i>&nbsp;Sign In</asp:LinkButton>
+
+                            <div class="clearfix"></div>
+                        </div>
+
+
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+        <!--top-header-->
+        <div class="holder_wrapper">
+            <div class="container">
+
+                <div class="col-md-5 col-sm-5 col-xs-12 ">
+                    <div class="row">
+                        <div class="col-md-7  col-sm-6  col-xs-8">
+                            <!--start-logo-->
+                            <div class="logo">
+                                <a href="../Default.aspx">
+                                    <img src="../images/logo.jpg" class="img-responsive" alt="" /></a>
+                            </div>
+                            <!--start-logo-->
+                        </div>
+
+                        <div class="col-md-5 col-sm-6  col-xs-4">
+                            <!--<a href="http://www.superbikeschoolindia.com" target="_blank">
+                                <img src="../images/super_bike_logo.jpg" class="img-responsive" alt="" /></a>-->
+<a href="#" >
+                                <img src="../images/super_bike_logo.jpg" class="img-responsive" alt="" /></a>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+                <div class="col-md-5 col-sm-5  col-xs-8">
+
+                    <div id="main_search_div">
+
+                        <div class="search-bar">
+                            <asp:Panel ID="Panel1" runat="server" DefaultButton="btnSubmit">
+                                <asp:TextBox ID="txtSearch" runat="server" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}"></asp:TextBox>
+                                <%--  <input type="text" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
+                            <input type="submit" value="">--%>
+                                <asp:Button ID="btnSubmit" runat="server" Text="" OnClick="btnSubmit_Click" />
+                            </asp:Panel>
+                                              <div class="clearfix"></div>
+ </div>
+
+
+                    </div>
+                </div>
+
+                <div class="col-md-2  col-sm-2  col-xs-4">
+                    <div class="">
+
+                        <div class="header-bottom-right">
+                            <ul class="icon1 sub-icon1 profile_img">
+                                <li><a class="active-icon c1" href="#">
+                                    <img src="../images/cart_icon.jpg" alt="" /><br>
+                                    My Cart </a>
+                                    <div class="rate">
+                                        <asp:Label ID="lblItems" runat="server"></asp:Label>
+                                    </div>
+                                    <ul class="sub-icon1 list">
+                                        <h3>Recently added items()</h3>
+
+
+                                        <div class="shopping_cart">
+
+                                            <asp:Repeater ID="GridView1" runat="server" OnItemCommand="GridView1_ItemCommand" OnItemDataBound="GridView1_ItemDataBound">
+                                                <ItemTemplate>
+                                                    <div class="cart_box">
+                                                        <div class="message">
+                                                            <div class="alert-close"></div>
+                                                            <div class="list_img">
+                                                                <%--<img src="images/1.jpg" class="img-responsive" alt="" />--%>
+                                                                <asp:Image ID="img1" runat="server" BorderWidth="0" class="img-responsive" Height="40px" Width="40px" />
+                                                                <asp:Label ID="lblImgPath" runat="server" Text='<%# Eval("images") %>' Visible="false"></asp:Label>
+                                                            </div>
+                                                            <div class="list_desc">
+                                                                <h4><%# Eval("product_name") %></h4>
+                                                                <span class="actual"><%# Eval("price","{0:n0}") %></span>
+                                                            </div>
+                                                            <div class="clearfix"></div>
+                                                        </div>
+                                                    </div>
+                                                </ItemTemplate>
+                                            </asp:Repeater>
+
+
+                                        </div>
+
+
+
+                                        <div class="total">
+                                            <div class="total_left">Subtotal : </div>
+                                            <div class="total_right">&nbsp;&nbsp;<asp:Label ID="lblSubTotal" runat="server"></asp:Label></div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="login_buttons">
+                                            <div class="check_button"><a href="../cart/viewcart.aspx">Check out</a></div>
+                                            <div class="login_button"><a href="../cart/login.aspx">Login</a></div>
+                                            <div class="clearfix"></div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <div class="clearfix"></div>
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+            <!--bottom-header-->
+            <div class="header-bottom">
+                <div class="container">
+                    <div class="header">
+                        <div class="col-md-3 col-sm-3 col-xs-3 header-left">
+
+                            <div class="box">
+
+
+                                <asp:DropDownList ID="ddlManufacturers" runat="server" CssClass="dropdown drop" AppendDataBoundItems="true" DataSourceID="dsManufacturers" DataTextField="manufacturer_name" DataValueField="id" AutoPostBack="True" OnSelectedIndexChanged="ddlManufacturers_SelectedIndexChanged">
+                                    <asp:ListItem Text="Shop By Bike" Value="0"></asp:ListItem>
+                                </asp:DropDownList>
+                                <asp:SqlDataSource ID="dsManufacturers" runat="server" ConnectionString="<%$ ConnectionStrings:ConnString %>" SelectCommand="SELECT [id], [manufacturer_name] FROM [manufacturer_master_tbl] ORDER BY [manufacturer_name]"></asp:SqlDataSource>
+
+
+
+                            </div>
+
+
+                        </div>
+
+                        <div class="col-md-9  col-sm-12 col-xs-12">
+                            <div id="cssmenu">
+
+                                <ul>
+
+                                    <li><a href="../default.aspx"><span class="glyphicon glyphicon-home"></span></a></li>
+
+                                    <li><a href="../about.aspx">About</a> </li>
+
+
+                                    <li><a href="../categories.aspx">Products</a></li>
+
+
+                                    <li><a href="../NewArrivals.aspx">New Arrivals</a></li>
+
+                                    <li><a href="../BestSellers.aspx">Best Sellers </a></li>
+
+                                    <li><a href="../Promotions.aspx">Promotions </a></li>
+
+                                    <li><a href="../BargainBasement.aspx">Bargain Basement</a></li>
+
+                                        <li><a href="../dealers.aspx">Dealers</a></li>
+
+                                        <li><a href="../faqs.aspx">FAQ's</a></li>
+
+                                        <li><a href="../contact.aspx">Contact </a></li></ul>
+
+
+
+                            </div>
+
+
+                            <div class="clearfix"></div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="shop_by_bike">
+                                                <asp:DropDownList ID="DropDownList1" runat="server" CssClass="dropdown drop" AppendDataBoundItems="true" DataSourceID="dsManufacturers" DataTextField="manufacturer_name" DataValueField="id" AutoPostBack="True" OnSelectedIndexChanged="ddlManufacturers_SelectedIndexChanged">
+                                    <asp:ListItem Text="Shop By Bike" Value="0"></asp:ListItem>
+                                </asp:DropDownList>
+                                <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:ConnString %>" SelectCommand="SELECT [id], [manufacturer_name] FROM [manufacturer_master_tbl] ORDER BY [manufacturer_name]"></asp:SqlDataSource>
+
+
+
+
+            </div>
+
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+
+        </div>
+        <!--footer-starts-->
+        <div class="footer">
+            <div class="container">
+                <div class="row">
+
+                    <div class="infor-top">
+
+                        <div class="col-md-2 infor-left">
+                            <div>
+                                <h3>Main Links</h3>
+                            </div>
+
+                            <div class="col-md-6">
+                                <ul>
+                                    <li><a href="../about.aspx">
+                                        <p>About</p>
+                                    </a></li>
+                                    <li><a href="../categories.aspx">
+                                        <p>Products</p>
+                                    </a></li>
+                                    <li><a href="../NewArrivals.aspx">
+                                        <p>New Arrivals</p>
+                                    </a></li>
+                                    <li><a href="../BestSellers.aspx">
+                                        <p>Best Sellers </p>
+                                    </a></li>
+                                    <li><a href="../Promotions.aspx">
+                                        <p>Promotions</p>
+                                    </a></li>
+                                </ul>
+                            </div>
+
+                            <div class="col-md-6">
+                                <ul>
+                                    <li><a href="../BargainBasement.aspx">
+                                        <p>Bargain Basement</p>
+                                    </a></li>
+                                    <li><a href="../dealers.aspx">
+                                        <p>Dealers</p>
+                                    </a></li>
+                                    <li><a href="../faqs.aspx">
+                                        <p>Product FAQ's</p>
+                                    </a></li>
+                                    <li><a href="Testimonials.aspx">
+                                        <p>Testimonials</p>
+                                    </a></li>
+                                </ul>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-2 infor-left">
+                            <h3>Customer Services</h3>
+                            <ul>
+                                <li><a href="../order_status.aspx">
+                                    <p>Order Status</p>
+                                </a></li>
+
+                                <li><a href="../order_faqs.aspx">
+                                    <p>Order FAQ's</p>
+                                </a></li>
+                                <li><a href="../product_care.aspx">
+                                    <p>Product Care</p>
+                                </a></li>
+                            </ul>
+                        </div>
+
+                        <div class="col-md-2 infor-left">
+                            <h3>Legal</h3>
+                            <ul>
+                                <li><a href="../privacy_policy.aspx">
+                                    <p>Privacy Policy</p>
+                                </a></li>
+                                <li><a href="../terms_conditions.aspx">
+                                    <p>Terms & Conditions</p>
+                                </a></li>
+                                <li><a href="../shipping_delivery.aspx">
+                                    <p>Shipping & Delivery</p>
+                                </a></li>
+
+                                <li><a href="../warranty.aspx">
+                                    <p>Warranty</p>
+                                </a></li>
+
+
+
+
+                                <li><a href="../cancellation_returns.aspx">
+                                    <p>Cancellation & Returns</p>
+                                </a></li>
+
+                                <li><a href="../Disclaimer.aspx">
+                                    <p>Disclaimer</p>
+                                </a></li>
+                            </ul>
+                        </div>
+
+                        <div class="col-md-3 infor-left">
+                            <h3>Contact</h3>
+                            <p>
+                                <img src="../images/performance_logo_f.png" alt="" />
+                            </p>
+                            <p><a href="mailto:sales@performanceracing.in"><span class="glyphicon glyphicon-envelope">&nbsp;</span>sales@performanceracing.in</a></p>
+                            <p><span class="glyphicon glyphicon-phone-alt">&nbsp;</span>+91-22-23549696</p>
+                            <p><span class="glyphicon glyphicon-time">&nbsp;</span>Time: 10.30am - 8pm</p>
+                            <p><span class="glyphicon glyphicon-list-alt">&nbsp;</span>Monday to Saturday</p>
+
+                        </div>
+
+                        <div class="col-md-3 col-sm-12  infor-left">
+                             <h3>Customer Services</h3>
+                            <div class="">
+                                <ul class="social_icons">
+                                    <li><a href="https://www.facebook.com/performanceracingstore" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="https://www.instagram.com/performanceracingindia/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                                </ul>
+                            </div>
+
+                            <div class="">
+                                <ul class="social_icons">
+                                    <li><a href="#"><i class="fa fa-youtube"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                </ul>
+                            </div>
+
+                            <div class="">
+                                <ul class="social_icons">
+                                    <li><a href="../default.aspx"><i class="fa fa-home"></i></a></li>
+                                    <li><a href="mailto:sales@performanceracing.in"><i class="fa fa-envelope"></i></a></li>
+                                    <li><a href="../sitemap.aspx"><i class="fa fa-sitemap"></i></a></li>
+                                </ul>
+                            </div>
+
+                        </div>
+
+                        <div class="clearfix"></div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <!--footer-end-->
+        <div class="footer_copy">Copyright &copy; 2015 Performance Racing | All Rights Reserved | Site Designed & Maintained By <a href="http://www.goradiainfotech.com/" target="_blank">Goradia Infotech</a></div>
+        <script src="ticker.js"></script>
+
+        <script src="../js/menumaker.js"></script>
+        <script type="text/javascript">
+            $("#cssmenu").menumaker({
+                title: "Menu",
+                format: "multitoggle"
+            });
+        </script>
+
+    </form>
+
+
+</body>
+</html>

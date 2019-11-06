@@ -1,0 +1,350 @@
+.products-list{
+		margin-bottom:15px;
+	}
+		.product-head{
+			padding: 14px 20px;
+			margin:0 0 20px;
+			font-size:24px;
+			background:#252a2f;
+			color:#fff;
+			text-transform:uppercase;
+		}
+		.product-col{
+			padding:10px 10px 10px;
+			margin-bottom:10px;
+			background:#fff;
+			border:1px solid #e8e8e8;
+		}
+		.product-col.list .image{
+			padding:0 0 10px 0;
+			float:left;
+		}
+		.product-col .caption{
+			padding: 0 0;
+		}
+			.product-col h4{
+				font-size:18px;
+				text-transform:none;
+			}
+			.product-col .description{
+				padding:0px 0;
+				font-size:14px;
+				line-height:18px;
+				text-align:justify;
+				color:#8b8b8b;
+			}
+			.product-col.list .description{
+				padding-right:10px;
+			}
+			.product-col .price{
+				padding:5px 0;
+			}
+				.product-col .price .price-tax{
+					font-size:14px;
+					color:#333;
+					text-transform:none;
+				}
+				.product-col .price span.price-new{
+					color:#2f353b;
+					font-size:18px;
+					padding-right:5px;
+				}
+				.product-col .price span.price-old{
+					font-size:18px;
+					color:#808080;
+					text-decoration:line-through;
+				}
+			.product-col .cart-button{
+				padding-top:10px;
+			}
+				.product-col .cart-button .btn{
+					-webkit-border-radius:0;
+					   -moz-border-radius:0;
+				            border-radius:0;
+				}
+				
+				.product-col .btn-wishlist, 
+				.product-col .btn-compare{
+					color:#fff;
+					background:#303030;
+					margin-right:3px;
+				}
+				.product-col .btn-wishlist:hover, 
+				.product-col .btn-compare:hover, 
+				.product-col .btn-cart, 
+				.product-col .btn-cart:hover .fa {
+					background:#4bac52;				
+				}
+				.product-col .btn-cart{
+					padding:0 0 0 15px;
+					font-size:18px;
+					color:#fff;
+					text-transform:uppercase;
+					border:none;
+				}
+				.product-col .btn-cart .fa{
+					margin-left:10px;
+					padding:10px;
+				}
+				.product-col .btn-cart .fa, 
+				.product-col .btn-cart:hover{
+					background:#303030;
+				}
+				.product-col .cart-button.button-group .btn-cart{
+					padding:5px 12px;
+					font-size:17px;
+				}
+				.product-col .cart-button.button-group .btn-cart .fa {
+					margin-left:0;
+					padding:0;
+					background:none;
+				}
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (min-width: 1200px) {
+
+/* Tooltip Styles Starts */
+
+	
+}
+
+/* Medium Devices Styles Starts */
+
+@media (min-width: 992px) and (max-width: 1199px) {
+
+/* Tooltip Styles Starts */
+	
+	.header-links .tooltip{
+		display:none !important;
+	}
+
+/* Cart Style Starts */	
+
+	#cart .btn{
+	}
+		#cart .btn .fa-shopping-cart{
+			margin-right:7px;
+		}
+		#cart .btn span#cart-total{
+			padding:0 5px;
+		}
+		#cart .btn i.fa-caret-down{
+			margin-left:0;
+		}
+		
+/* Main Menu Styles Starts */
+
+/* Products Box Styles */
+
+	.product-col.list .image{
+		padding:40px 30px 10px 0;
+	}
+	.product-col .btn-cart{
+		margin-top:5px;
+	}
+	
+/* Product Carousel Styles Starts */	
+
+	.product-carousel .owl-controls .owl-buttons .owl-prev{
+		left:89%;
+	}		
+
+/* Footer Links Styles Starts */
+
+	.footer-links h5{
+		margin:10px 0;
+	}
+
+/* Copyright Styles Starts */
+	
+	.copyright{
+		font-size:13px;
+	}
+		.copyright p.pull-left, .copyright ul{
+			text-align:center;
+			float:none !important;
+		}
+
+}
+
+/* Small Devices Styles Starts */
+
+@media (min-width: 768px) and (max-width: 991px) {
+
+/* Logo Styles Starts */
+
+	#logo .img-responsive{
+		margin-left:auto;
+		margin-right:auto;
+	}
+
+/* Main Menu Styles Starts */
+
+	#main-menu .container{
+		padding-left:0;
+		padding-right:0;
+	}
+	#main-menu .navbar-nav > li a{
+		font-size:14px;
+		padding-left:10px;
+		padding-right:10px;
+	}
+	
+/* Products Box Styles */
+
+	.product-col.list .image{
+		padding:40px 30px 10px 0;
+	}	
+	
+/* Product Carousel Styles Starts */	
+
+	.product-carousel .row{
+		margin-left:-3px;
+		margin-right:-3px;
+	}
+	.product-carousel .col-xs-12{
+		padding-left:0;
+		padding-right:0;
+	}
+	.product-carousel .owl-wrapper-outer{
+	}
+    .product-carousel #owl-product .item{
+		padding-left:3px;
+		padding-right:3px;
+		text-align:center;
+    }
+	.product-carousel .owl-controls .owl-buttons .owl-prev{
+		left:86%;
+	}		
+	
+/* Side Products Lists Styles Starts */
+
+	.side-products-list h5,
+	.side-products-list .price{
+		float:none;
+	}
+	
+/* Pagination Styles Starts */
+
+	.pagination{
+		margin-bottom:15px; 
+	}
+	.results{	
+		padding-top:5px;
+	}
+	
+/* Footer Links Styles Starts */
+
+	.footer-links h5{
+		margin:10px 0;
+	}
+	
+/* Copyright Styles Starts */
+	
+	.copyright{
+		font-size:12px;
+	}
+		.copyright p.pull-left, .copyright ul{
+			text-align:center;
+			float:none !important;
+		}
+	
+}
+
+/* Extra Small Devices Styles Starts */
+
+@media (max-width: 767px) {
+
+    .box1{ display:none;
+
+}
+
+
+
+/* Responsive Image Styles Starts */
+
+	#logo .img-responsive, .col3-banners .img-responsive, .col2-banners .img-responsive, .product-col .img-responsive{
+		margin:0 auto;
+	}
+	
+/* Main Menu Styles Starts */
+
+	#main-menu .navbar-toggle {
+		color:#fff;
+	}
+	#main-menu .dropdown-inner ul {
+		display:block;
+	}
+
+/* Header Links Styles Starts */
+
+		.header-links ul.pull-left{
+			float:none !important;
+			text-align:center;
+		}
+			.header-links li a{	
+				padding:10px 3px 0;
+			}
+		
+/* Currency & Languages Drop Down Styles Starts */
+
+		.header-top .pull-right{
+			float:none !important;
+			text-align:center;
+		}
+			.header-top .btn-link{
+				margin:0 0 10px;
+			}
+			
+/* Slider Section Styles Starts */
+
+	.slider{
+		margin-bottom:20px;
+	}	
+
+/* Latest Products Styles Starts */
+
+	.product-head, .product-col{
+		text-align:center;
+	}
+		.product-col.list .image{
+			float:none;
+			padding:0;
+		}
+		
+/* Product Carousel Styles Starts */	
+
+	.product-head{
+		font-size:18px;
+	}
+	#owl-product .owl-controls .owl-buttons .owl-prev, 
+	#owl-product .owl-controls .owl-buttons .owl-next{
+		top:-56px;
+		font-size:20px;
+	}
+	.product-carousel .owl-controls .owl-buttons .owl-prev{
+		left:15px;
+	}	 
+	.product-carousel .owl-controls .owl-buttons .owl-next{
+		right:20px;
+	}		
+			
+
+	
+
+
+}

@@ -1,0 +1,40 @@
+.sub-menu1 {display: inline-block;width: 100%;margin: 15px 0px;}
+.sub-menu1 ul {padding:0px;display: inline-block;width: 100%;margin:0px;}
+.sub-menu1 ul li {list-style-type:none;float:left;text-decoration:none;margin-right: 5px;}
+.sub-menu1 ul li  a{color:#000;}
+.main_header.category {padding-top: 0px;}
+.container.category {padding: 0px;}
+h1.header-category {text-align: center;margin: 0 auto;text-transform: uppercase;font-size: 40px;font-weight: 300;margin: 0 auto;}
+.inner.category {padding: 0px;}
+h1.header.cat {border-bottom: none;}
+section.container.parallax.waypoint.cat {margin-top: 25px;}
+.col-md-12.new {padding-top: 20px;}
+button.btn.btn-danger.cat {font-size: 18px;font-weight: 500;}
+img.cat-image {width: 100%;}
+.item_inner{display:block;border-top:1px solid #eee;border-bottom:1px solid #eee;text-align:center;margin:10px 0px 20px;padding-bottom:20px;position:relative;}
+.item_inner .item_heading{display:block;font-size:18px;color:#222;}
+.item_inner .item_price{display:block;font-size:16px;color:#c5383c;margin-top:10px;}
+.item_inner .item_rating {display:block;margin:10px 0px;}
+.item_inner .item_rating a i{font-size:16px;color:#eee;}
+.item_inner .item_rating a:hover i{color:#fab13a;text-decoration:none;}
+.item_inner .item_rating a i.star_filled{color:#fab13a;}
+.item_inner:hover .item_hover{display:block;}
+.item_inner .item_hover{display:none;position:absolute;top:0;right:0;}
+.item_inner .item_hover a {display: block;background: #cc4e52;color: #fff;padding: 6px 8px;margin: 5px 5px 0px 0px;border-radius: 100%;font-size: 16px;line-height: 21px;opacity:0.8;}
+.item_inner .item_hover a:hover{opacity:1;}
+.item_inner.cat { border-top: 0px solid #eee;border-bottom: 0px solid #eee;}
+
+span.heading_line {border-top: 2px solid #de7a7a;width: 150px;display: inherit;margin: 10px auto 20px;line-height: 1px;}
+span.heading_line1 {border-top: 2px solid #D2CECE;width: 150px;display: inherit;margin: 10px auto 20px;line-height: 1px;}
+.nav>li>a.cat-text {text-transform: none;}
+a:hover{text-decoration:none;}
+.category-item{    display: inline-block;
+    width: 100%;}
+	.full-btn-box{text-align: center;
+    margin-bottom: 0px;
+    background-color: #ccc;
+    padding: 20px 0px;}
+	
+	.cat2{padding: 8px 20px;
+    font-size: 18px;}
+.pro-rating{margin:10px 0px;}	

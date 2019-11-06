@@ -1,0 +1,178 @@
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,600italic);
+@import url(https://fonts.googleapis.com/css?family=Oswald:400,300,700);
+
+/******** SAP ************/
+.sap_tabs{
+	clear:both;
+	padding: 0em 0 0em;
+}
+.tab_box{
+	background:#fd926d;
+	padding: 1em;
+}
+.top1{
+	margin-top: 2%;
+}
+.resp-tabs-list {
+    width: 43%;
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+    border-bottom: 1px solid #808080;
+    margin-bottom: 20px;
+}
+
+.resp-tab-item{
+	color:#000;
+	font-size: 17px;
+	  font-family: 'Oswald', sans-serif;
+	cursor: pointer;
+	padding: 6px ;
+	display: inline-block;
+	margin: 0;
+	text-align: center;
+	list-style: none; margin-left:20px;
+
+	width:auto;
+	outline: none;
+	-webkit-transition: all 0.3s ease-out;
+	-moz-transition: all 0.3s ease-out;
+	-ms-transition: all 0.3s ease-out;
+	-o-transition: all 0.3s ease-out;
+	transition: all 0.3s ease-out;
+	text-transform: none;
+	border: 0px solid #000;
+padding:4px 10px; 
+}
+.resp-tab-active{
+	background:#000;
+	text-shadow: none;
+	color:#fff;
+	border: 2px solid #000;
+}
+.resp-tabs-container {
+	padding: 0px;
+	background-color: #fff;
+	clear: left;
+	
+}
+h2.resp-accordion {
+	cursor: pointer;
+	padding: 5px;
+	display: none;
+}
+.resp-tab-content {
+	display: none;
+}
+.resp-content-active, .resp-accordion-active {
+   display: block;
+}
+
+.tab_img{
+
+	padding:2em 1em;
+}
+.img-top {
+	float: left;
+	width: 33.33%;
+	  position: relative;
+}
+
+.tab_desc {
+  background: rgba(0, 0, 0, 0.15);
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+    padding: 15em 2em 0;
+    display: none;
+}
+
+
+/* Larger than mobile */
+@media (min-width: 400px) {}
+
+/* Larger than phablet (also point when grid becomes active) */
+@media (min-width: 550px) {}
+
+/* Larger than tablet */
+@media (min-width: 750px) {}
+
+/* Larger than desktop */
+@media (min-width: 1000px) {
+
+    .resp-tabs-list {
+       
+     
+        margin-bottom: 20px;
+    }
+
+
+}
+
+/* Larger than Desktop HD */
+@media (min-width: 1200px) {}
+
+
+@media (max-width: 960px) {
+
+    .resp-tabs-list {
+        width: 60%;
+        margin: 0 auto 0px;
+        margin-bottom: 20px;
+    }
+
+
+    .resp-tab-item {
+        font-size: 14px;
+        font-family: 'Oswald', sans-serif;
+    }
+
+
+    @media (max-width: 768px) {
+        .resp-tabs-list {
+            width: 100%;
+            list-style: none;
+            padding: 0;
+            margin-left: 10px;
+        }
+
+        .resp-tabs-list {
+            color: #000;
+            font-size: 15px;
+        }
+
+
+        .resp-tab-item {
+            color: #000;
+            font-size: 13px;
+            font-family: 'Oswald', sans-serif;
+            cursor: pointer;
+            padding: 6px;
+            display: inline-block;
+            margin: 0;
+            text-align: center;
+            list-style: none;
+            float: left;
+            width: auto;
+            outline: none;
+            -webkit-transition: all 0.3s ease-out;
+            -moz-transition: all 0.3s ease-out;
+            -ms-transition: all 0.3s ease-out;
+            -o-transition: all 0.3s ease-out;
+            transition: all 0.3s ease-out;
+            text-transform: none;
+            border: 0px solid #000;
+            margin: 0 0.1em 0;
+            padding: 4px 10px;
+        }
+
+        .resp-tab-active {
+            background: #000;
+            text-shadow: none;
+            color: #fff;
+            border: 2px solid #000;
+        }
+    }
+}

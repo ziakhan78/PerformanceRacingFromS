@@ -1,0 +1,111 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+#login_holder
+{
+	margin:20px;
+	width:625px;
+	height:380px;
+	background-image:url(../admin_icons/login_bg.gif);
+	background-repeat:no-repeat;
+	text-align:center;
+}
+
+.log_heading
+{
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:14px;
+	color:#FFF;
+	height:50px;
+	padding-top:65px;
+}
+#log_content
+{
+	height:222px;
+}
+#log_content_left
+{
+	width:440px;
+	float:left;
+	padding:10px 0px 0px 135px;
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:11px;
+	color:#FFF;
+}
+
+#log_content_left ul li
+{
+	list-style-type:none;
+	padding:0px;
+	margin:0px;
+	text-align:left;
+	line-height:25px;
+}
+
+#login_btn
+{
+	width:50px;	
+	float:right;
+}
+
+#log_forget
+{
+	clear:both;
+	height:30px;
+	padding:13px 0px 0px 174px;
+}
+/*--------------------- USER ----------------------*/
+
+#user_holder
+{
+	margin:20px;
+	width:625px;
+	height:317px;
+	background-image:url(../admin_icons/user_bg.gif);
+	background-repeat:no-repeat;
+	text-align:center;
+}
+
+#user_head
+{
+	height:53px;
+	clear:both;
+}
+#user_content_left
+{
+	width:440px;
+	float:left;
+	padding:10px 0px 0px 135px;
+	font-family:Verdana, Geneva, sans-serif;
+	font-size:11px;
+	color:#FFF;
+}
+
+#user_content_left ul li
+{
+	list-style-type:none;
+	padding:0px;
+	margin:0px;
+	text-align:left;
+	line-height:25px;
+}
+
+#user_btn
+{
+	margin-top:31px;
+	width:50px;
+	background-color:#F00;
+	float:right;
+}
+
+#user_forget
+{
+	clear:both;
+	height:30px;
+	padding:0px 0px 0px 175px;
+}
+
+	
+	
+
+
